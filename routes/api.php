@@ -24,6 +24,6 @@ Route::prefix('admin')->group(function () {
     Route::post('/category/store','API\CategoryController@store')->name('admin.category.store');
     Route::post('/category/update','API\CategoryController@update')->name('admin.category.update');
 
-    Route::post('/get-all-categories','API\CategoryController@getAllCategories')->name('admin.get-all-categories');
+    Route::post('/category/get-all-categories','API\CategoryController@getAllCategories')->name('admin.get-all-categories');
 
 });

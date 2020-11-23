@@ -118,6 +118,7 @@
                         <div class="col-md-12">
                            <label for=""><b>Parent Category:</b></label>
                            <select name="" id="parent" class="form-control" v-model="store.parent_id">
+                              <option value="">Select Category</option>
                               <option v-for="(menu,index) in categories" :key="index" :value="index">{{menu}}</option>
                            </select>
                         </div>
@@ -274,7 +275,7 @@ export default {
             {label: 'Category Type', name: 'type'},
             {label: 'Status', name: 'status'},
         ],
-        categories:[],
+        categories:[], 
         show:[],
         store:{
            name:'',
@@ -325,7 +326,6 @@ export default {
     created(){
         this.getCategoryData();
     }
-
 };
 </script>
 

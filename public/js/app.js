@@ -2526,6 +2526,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 var INDEX_URL = "/api/admin/category/index";
 var STORE_URL = "/api/admin/category/store";
@@ -48750,14 +48751,20 @@ var render = function() {
                                 }
                               }
                             },
-                            _vm._l(_vm.categories, function(menu, index) {
-                              return _c(
-                                "option",
-                                { key: index, domProps: { value: index } },
-                                [_vm._v(_vm._s(menu))]
-                              )
-                            }),
-                            0
+                            [
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Select Category")
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.categories, function(menu, index) {
+                                return _c(
+                                  "option",
+                                  { key: index, domProps: { value: index } },
+                                  [_vm._v(_vm._s(menu))]
+                                )
+                              })
+                            ],
+                            2
                           )
                         ]),
                         _vm._v(" "),
@@ -65025,6 +65032,7 @@ __webpack_require__.r(__webpack_exports__);
     this.getAllRoles();
     this.getAllPermission();
     this.getAllPermissionAsMenu();
+    this.getAllCategories();
   },
   computed: {
     filteredData: function filteredData() {
@@ -65181,9 +65189,10 @@ __webpack_require__.r(__webpack_exports__);
     getAllCategories: function getAllCategories() {
       var _this7 = this;
 
-      var URL = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "/api/admin/get-all-categories";
+      var URL = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "/api/admin/category/get-all-categories";
       this.$http.post(URL).then(function (resp) {
-        _this7.categories = resp.data.categories; // console.log(resp.data.categories);
+        _this7.categories = resp.data.categories;
+        console.log(resp.data.categories.name);
       })["catch"](function (errors) {
         console.log(errors);
       });

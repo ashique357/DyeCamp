@@ -38,6 +38,7 @@ export default{
         this.getAllRoles();
         this.getAllPermission();
         this.getAllPermissionAsMenu();
+        this.getAllCategories();
         },
     computed:{
         filteredData() {
@@ -191,11 +192,11 @@ export default{
             })
         },
 
-        getAllCategories(URL="/api/admin/get-all-categories"){
+        getAllCategories(URL="/api/admin/category/get-all-categories"){
             this.$http.post(URL)
             .then(resp=>{
                 this.categories=resp.data.categories;
-                // console.log(resp.data.categories);
+                console.log(resp.data.categories.name);
             })
             .catch(errors=>{
                 console.log(errors);
