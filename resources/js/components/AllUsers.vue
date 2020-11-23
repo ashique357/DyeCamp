@@ -2,7 +2,7 @@
    <div class="card ">
       <div class="card-header">
          <h4 class="card-title"> User Management</h4>
-         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm pull-right" @click="openModal('#createModal')"><i class="fas fa-plus fa-sm text-white-50"></i> Add User</a>
+         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm pull-right" @click="openModal('#createModal')" v-can="accessControl.create"><i class="fas fa-plus fa-sm text-white-50"></i> Add User</a>
       </div>
       <div class="card-body">
          <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -64,7 +64,7 @@
                               <div class="form-group">
                                  <a class="btn btn-sm btn-primary" title="View" @click="showModal('#showModal',user)"><i class="fas fa-eye"></i></a>
                                  <a class="btn btn-sm btn-secondary" title="Edit" @click="editModal('#editModal',user)" v-can="accessControl.edit"><i class="fas fa-edit"></i></a>
-                                 <a class="btn btn-sm btn-danger" title="Delete" v-can="accessControl.delete"><i class="fas fa-trash"></i></a>
+                                 <a class="btn btn-sm btn-danger" title="Delete"><i class="fas fa-trash" v-can="accessControl.delete"></i></a>
                               </div>
                            </td>
                         </tr>
@@ -324,7 +324,7 @@ export default {
                 this.closeModal("#createModal");
                 this.failedSweetAlert();
                 this.FailedToaster();
-                this.reload();
+               //  this.reload();
             })
       }
     },

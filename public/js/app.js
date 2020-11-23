@@ -2246,9 +2246,8 @@ var UPDATE_URL = "/api/admin/user/update";
 
         _this.failedSweetAlert();
 
-        _this.FailedToaster();
+        _this.FailedToaster(); //  this.reload();
 
-        _this.reload();
       });
     }
   },
@@ -46615,6 +46614,14 @@ var render = function() {
       _c(
         "a",
         {
+          directives: [
+            {
+              name: "can",
+              rawName: "v-can",
+              value: _vm.accessControl.create,
+              expression: "accessControl.create"
+            }
+          ],
           staticClass:
             "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm pull-right",
           attrs: { href: "#" },
@@ -46926,18 +46933,22 @@ var render = function() {
                             _c(
                               "a",
                               {
-                                directives: [
-                                  {
-                                    name: "can",
-                                    rawName: "v-can",
-                                    value: _vm.accessControl.delete,
-                                    expression: "accessControl.delete"
-                                  }
-                                ],
                                 staticClass: "btn btn-sm btn-danger",
                                 attrs: { title: "Delete" }
                               },
-                              [_c("i", { staticClass: "fas fa-trash" })]
+                              [
+                                _c("i", {
+                                  directives: [
+                                    {
+                                      name: "can",
+                                      rawName: "v-can",
+                                      value: _vm.accessControl.delete,
+                                      expression: "accessControl.delete"
+                                    }
+                                  ],
+                                  staticClass: "fas fa-trash"
+                                })
+                              ]
                             )
                           ])
                         ])

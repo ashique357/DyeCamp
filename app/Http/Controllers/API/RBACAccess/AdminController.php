@@ -19,7 +19,7 @@ class AdminController extends Controller
         $this->role=$role;
         $this->permission=$permission;
 
-        // $this->middleware('can:create,App\Models\Admin')->only('create');
+        // $this->middleware('can:create,App\Models\Admin')->only('store');
         // $this->middleware('can:update,admin,update')->only('update');
         // $this->middleware('can:delete,user')->only('destroy');
     }
@@ -62,7 +62,7 @@ class AdminController extends Controller
         $admin->roles()->sync($admin_role->id);
         $admin_permission=$admin_role->permissions()->pluck('id');
         $admin->permissions()->sync($admin_permission);
-        return response()->json('successfully saved',200);            
+        return response()->json('successfully saved',200);           
     }
 
     public function update(Request $request){
@@ -83,9 +83,9 @@ class AdminController extends Controller
         else{
             return response()->json('error',100);
         }
-        // $admin=$this->admin->find(id,1);
-        // $permission="update-admin";
-        // $t=$this->authorize('update', $admin,$permission);
-        // echo $t;
     }
 }
+
+
+
+

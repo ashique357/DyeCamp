@@ -36,7 +36,7 @@ class Admin extends Authenticatable
             'name' => 'required',
             'email' => isset($input['id']) ? 'required|unique:users,email,' . $input['id'] : 'required|unique:users,email',
             'password' => isset($input['id']) ? 'sometimes' : 'required',
-            'confirm_password' => isset($input['id']) ? 'sometimes' : 'required:same:password',
+            // 'confirm_password' => isset($input['id']) ? 'sometimes' : 'required:same:password',
         ];
     }
 
