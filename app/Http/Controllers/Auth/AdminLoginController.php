@@ -74,6 +74,8 @@ class AdminLoginController extends Controller
         $admin = new Admin();
         $admin->name = 'Admin';
         $admin->email = 'admin@gmail.com';
+        $admin->status=1;
+        $admin->phone="0123012323";
         $admin->password = Hash::make('123456');
         $admin->save();
 
